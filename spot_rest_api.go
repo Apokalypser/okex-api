@@ -298,6 +298,15 @@ func (client *Client) GetSpotInstrumentCandles(instrumentID string, options *map
 	return respBody, &r, nil
 }
 
+func (client *Client) GetSpotTradeFee() (*[]map[string]interface{}, error) {
+	r := []map[string]interface{}{}
+
+	if _, _, err := client.Request(GET, SPOT_TRADE_FEE, nil, &r); err != nil {
+		return nil, err
+	}
+	return &r, nil
+}
+
 /*
 下单
 OKEx币币交易提供限价单和市价单两种下单模式(更多下单模式将会在后期支持)。只有当您的账户有足够的资金才能下单。
