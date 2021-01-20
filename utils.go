@@ -370,6 +370,10 @@ func GetCurrencyUri(uri, currency string) string {
 	return strings.Replace(uri, "{currency}", currency, -1)
 }
 
+func GetCategoryUri(uri, category string) string {
+	return strings.Replace(uri, "{category}", category, -1)
+}
+
 func GetInstrumentIdOrdersUri(uri, instrumentId string, orderId string) string {
 	uri = strings.Replace(uri, "{instrument_id}", instrumentId, -1)
 	uri = strings.Replace(uri, "{order_id}", orderId, -1)

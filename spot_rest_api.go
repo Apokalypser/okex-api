@@ -298,10 +298,10 @@ func (client *Client) GetSpotInstrumentCandles(instrumentID string, options *map
 	return respBody, &r, nil
 }
 
-func (client *Client) GetSpotTradeFee() (*map[string]interface{}, error) {
+func (client *Client) GetSpotTradeFeeByCategory(category string) (*map[string]interface{}, error) {
 	r := map[string]interface{}{}
-
-	if _, _, err := client.Request(GET, SPOT_TRADE_FEE, nil, &r); err != nil {
+	
+	if _, _, err := client.Request(GET, GetCategoryUri(SPOT_TRADE_FEE_BY_CATEGORY, category), nil, &r); err != nil {
 		return nil, err
 	}
 	return &r, nil
